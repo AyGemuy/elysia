@@ -1,0 +1,59 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Documentation",
+    "version": "1.0.0",
+    "description": "Dokumentasi untuk API Anda."
+  },
+  "paths": {
+    "/api/info/info": {
+      "get": {
+        "summary": "Mendapatkan pesan GET",
+        "responses": {
+          "200": {
+            "description": "Berhasil",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "GET request berhasil!"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Mengirim data POST",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "string",
+                    "example": "Contoh data"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Data berhasil diterima",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "POST request berhasil!",
+                  "data": "Contoh data"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

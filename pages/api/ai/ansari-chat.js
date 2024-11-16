@@ -1,0 +1,61 @@
+/**
+ * @swagger
+ * /api/ai/ansari-chat:
+ *   get:
+ *     summary: Get API status
+ *     description: Returns the status of the API.
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "ok"
+ */
+
+import fetch from "node-fetch";
+async function AnshariChat(message) {
+  try {
+    const url = "https://api.ansari.chat/api/v1/complete";
+    const headers = {
+      "Content-Type": "application/json",
+      "User-Agent": "Postify/1.0.0",
+      Referer: "https://ansari.chat/",
+      Origin: "https://ansari.chat",
+      "x-forwarded-for": new Array(4)
+        .fill(0)
+        .map(() => Math.floor(Math.random() * 256))
+        .join("."),
+    };
+    const body = JSON.stringify({
+      messages: [
+        {
+          role: "user",
+          content: message,
+        },
+      ],
+    });
+    const response = await fetch(url, {
+      method: "POST",
+      headers: headers,
+      body: body,
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error:", error);
+    return null;
+  }
+}
+export default async function handler(req, res) {
+  const { prompt } = req.query;
+
+  if (!prompt) return res.status(400).json({ message: "No prompt provided" });
+
+  const result = await AnshariChat(prompt);
+  return res.status(200).json(typeof result === "object" ? result : result);
+}
