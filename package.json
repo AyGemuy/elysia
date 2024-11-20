@@ -1,0 +1,41 @@
+{
+  "name": "wudysoft-api",
+  "version": "1.0.0",
+  "description": "A Next.js project using Google Gemini for generating AI responses",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@scalar/api-reference-react": "latest",
+    "awesome-phonenumber": "latest",
+    "axios": "latest",
+    "bootstrap": "latest",
+    "cheerio": "latest",
+    "eventsource": "latest",
+    "file-type": "latest",
+    "fake-useragent": "latest",
+    "formdata-node": "latest",
+    "uuid": "latest",
+    "crypto": "latest",
+    "child_process": "latest",
+    "ora": "latest",
+    "chalk": "latest",
+    "lodash": "latest",
+    "next": "latest",
+    "next-seo": "latest",
+    "node-fetch": "latest",
+    "react": "latest",
+    "react-bootstrap": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@netlify/plugin-nextjs": "latest",
+    "node-polyfill-webpack-plugin": "latest"
+  },
+  "author": "wudysoft <api@wudysoft.com>",
+  "license": "MIT"
+}
